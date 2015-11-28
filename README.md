@@ -39,7 +39,7 @@ For example, the embedded spinner in the QtWaitingSpinnerTest screenshot below c
   spinner.setRevolutionsPerSecond(1)
   spinner.setColor(QColor(81, 4, 71))
 
-  spinner.start(); // gets the show on the road!
+  spinner.start() # gets the show on the road!
 
 ```
 
