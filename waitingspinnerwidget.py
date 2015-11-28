@@ -2,7 +2,7 @@
 Original Work Copyright (c) 2012-2014 Alexander Turkin
    Modified 2014 by William Hallatt
    Modified 2015 by Jacob Dawid
-   Ported to Python (3) 2015 by Luca Weiss
+   Ported to Python3 2015 by Luca Weiss
 Permission is hereby granted, free of charge, to any person obtaining a copy of
 this software and associated documentation files (the "Software"), to deal in
 the Software without restriction, including without limitation the rights to
@@ -23,10 +23,10 @@ from PyQt5.QtCore import *
 from PyQt5.QtWidgets import *
 from PyQt5.QtGui import *
 import math
+import copy
 
-
-class WaitingSpinnerWidget(QWidget):
-    def __init__(self, parent, centerOnParent, disableParentWhenSpinning, modality=Qt.NonModal):
+class QtWaitingSpinner(QWidget):
+    def __init__(self, parent, centerOnParent=True, disableParentWhenSpinning=False, modality=Qt.NonModal):
         super().__init__(parent)
 
         self._centerOnParent = centerOnParent
@@ -189,7 +189,8 @@ class WaitingSpinnerWidget(QWidget):
             distance += totalNrOfLines
         return distance
 
-    def currentLineColor(self, countDistance, totalNrOfLines, trailFadePerc, minOpacity, color):
+    def currentLineColor(self, countDistance, totalNrOfLines, trailFadePerc, minOpacity, colorinput):
+        color = copy.deepcopy(colorinput)
         if countDistance == 0:
             return color
         minAlphaF = minOpacity / 100.0
@@ -199,9 +200,7 @@ class WaitingSpinnerWidget(QWidget):
         else:
             alphaDiff = color.alphaF() - minAlphaF
             gradient = alphaDiff / float(distanceThreshold + 1)
-            print(gradient)
             resultAlpha = color.alphaF() - gradient * countDistance
-
             # If alpha is out of bounds, clip it.
             resultAlpha = min(1.0, max(0.0, resultAlpha))
             color.setAlphaF(resultAlpha)
