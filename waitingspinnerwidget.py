@@ -19,11 +19,12 @@ IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 """
 
-from PyQt5.QtCore import *
-from PyQt5.QtWidgets import *
-from PyQt5.QtGui import *
 import math
-import copy
+
+from PyQt5.QtCore import *
+from PyQt5.QtGui import *
+from PyQt5.QtWidgets import *
+
 
 class QtWaitingSpinner(QWidget):
     def __init__(self, parent, centerOnParent=True, disableParentWhenSpinning=False, modality=Qt.NonModal):
@@ -190,7 +191,7 @@ class QtWaitingSpinner(QWidget):
         return distance
 
     def currentLineColor(self, countDistance, totalNrOfLines, trailFadePerc, minOpacity, colorinput):
-        color = copy.deepcopy(colorinput)
+        color = QColor(colorinput)
         if countDistance == 0:
             return color
         minAlphaF = minOpacity / 100.0
