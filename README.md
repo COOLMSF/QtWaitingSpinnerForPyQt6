@@ -43,6 +43,7 @@ spinner.start()
 ```
 
 A demo is included with the `demo.py` file.
+
 ![demo dialog](https://github.com/z3ntu/QtWaitingSpinner/blob/gh-pages/test-dialog.png)
 
 As an alternative example, the code below will create a spinner that (1) blocks all user input to the main application for as long as the spinner is active, (2) automatically centers itself on its parent widget every time "start" is called and (3) makes use of the default shape, size and color settings.
