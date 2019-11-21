@@ -1,4 +1,4 @@
-#QtWaitingSpinner
+# QtWaitingSpinner
 
 QtWaitingSpinner is a highly configurable, custom Qt widget for showing "waiting" or "loading" spinner icons in Qt applications, e.g. the spinners below are all QtWaitingSpinner widgets differing only in their configuration:
 
@@ -24,7 +24,7 @@ Despite being highly configurable, QtWaitingSpinner is extremely easy to use and
 
 For example, the embedded spinner in the QtWaitingSpinnerTest screenshot below can be created as follows:
 
-```
+```python
 from waitingspinnerwidget import QtWaitingSpinner
 
 spinner = QtWaitingSpinner(self)
@@ -48,7 +48,7 @@ A demo is included with the `demo.py` file.
 
 As an alternative example, the code below will create a spinner that (1) blocks all user input to the main application for as long as the spinner is active, (2) automatically centers itself on its parent widget every time "start" is called and (3) makes use of the default shape, size and color settings.
 
-```
+```python
 spinner = QtWaitingSpinner(self, True, True, Qt.ApplicationModal)
 spinner.start() # starts spinning
 ```
