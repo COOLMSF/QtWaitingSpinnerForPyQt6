@@ -26,8 +26,8 @@ SOFTWARE.
 
 import sys
 
-from PyQt5.QtCore import *
-from PyQt5.QtWidgets import *
+from PyQt6.QtCore import *
+from PyQt6.QtWidgets import *
 
 from waitingspinnerwidget import QtWaitingSpinner
 
@@ -61,7 +61,7 @@ class Demo(QWidget):
         button_hbox = QHBoxLayout()
         self.setLayout(grid)
         self.setWindowTitle("QtWaitingSpinner Demo")
-        self.setWindowFlags(Qt.Dialog)
+        self.setWindowFlags(Qt.WindowType.Dialog)
 
         # SPINNER
         self.spinner = QtWaitingSpinner(self)
